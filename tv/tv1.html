@@ -1,7 +1,82 @@
+
+
+<!--
+<script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.1/shaka-player.ui.min.js' crossorigin='anonymous'>
+    </script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.3/controls.min.css"> 
+     <style type="text/css">*{margin:0;padding:0;outline:none;}#containers{position:absolute;width:100%!important;height:100%!important;}*:focus{outline:none;}</style> 
+     
+  <!-- Mau Maling ya -- 
+  
+  <div class="internet-connection-status" id="internetStatus"></div> 
+  <div style="clear:both;"></div> 
+   <video autoplay="" data-shaka-player="" id="video" poster="" style="width:100%;height:100%" class="shaka-video"></video>   
+      <div class="shaka-range-container shaka-volume-bar-container" style="background: linear-gradient(to right, rgb(255, 255, 255) 100%, rgba(255, 255, 255, 0.54) 100%, rgba(255, 255, 255, 0.54) 100%);"></div>
+      <div class="shaka-range-container shaka-seek-bar-container" style="background: rgba(255, 255, 255, 0.3);">
+          <script>
+        const manifestUri =
+            'https://av-live-cdn.mncnow.id/live/eds/SPOTV2-HD/sa_dash_vmx/SPOTV2-HD.mpd';
+            async function init() {
+            const video = document.getElementById('video');
+            const ui = video['ui'];
+            const controls = ui.getControls();
+            const player = controls.getPlayer();
+            const config = {
+                'controlPanelElements': ['play_pause',
+                    'mute', 'volume','spacer', 'quality', 'fullscreen'
+                ]
+            }
+ 
+ player.configure({
+                    drm: {
+                        clearKeys: {
+   // 'key-id-in-hex': 'key-in-hex',
+                  '57d2ac9210cfbca3596cc679a01c8b29': 'd5e35c0f39c76adf24853d7ea18c71e7',
+                        }
+                    }
+                });
+        
+         
+            ui.configure(config);
+
+            window.player = player;
+            window.ui = ui;
+
+            player.addEventListener('error', onPlayerErrorEvent);
+            controls.addEventListener('error', onUIErrorEvent);
+
+            try {
+                await player.load(manifestUri);
+                console.log('The video has now been loaded!');
+            } catch (error) {
+                onPlayerError(error);
+            }
+        }
+
+        function onPlayerErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+
+        function onPlayerError(error) {
+            console.error('Error code', error.code, 'object', error);
+        }
+
+        function onUIErrorEvent(errorEvent) {
+            onPlayerError(event.detail);
+        }
+
+        function initFailed(errorEvent) {
+            console.error('Unable to load the UI library!');
+        }
+        document.addEventListener('shaka-ui-loaded', init);
+        document.addEventListener('shaka-ui-load-failed', initFailed);
+
+    </script>
+    -->
 <!DOCTYPE html><html><head></head>
 <body>
   
-<script src="https://content.jwplatform.com/libraries/Z79JsmAO"></script>
+<script src="https://raw.githubusercontent.com/gozhien/tv/main/libraries.Jq6HIbgz.js"></script>
 <style>
   
 body {
@@ -19,12 +94,13 @@ body {
 <style type="text/css">*{margin:0;padding:0;outline:none;}#container{position:absolute;width:100%!important;height:100%!important;}*:focus{outline:none;}</style>
 
 
-<script type="text/javascript">
+<script src="https://content.jwplatform.com/libraries/Z79JsmAO.js"></script>
+<script>	
 jwplayer('player').setup({
   playlist: [{
-		    title: "fastv",
+		    title: "FASTV",
 		    //description: "###",
-		    image: "http://fastv.mobie.in/image/tv.png",
+		    image: "",
 		    sources: [{
 		    file: "https://av-live-cdn.mncnow.id/live/eds/SPOTV2-HD/sa_dash_vmx/SPOTV2-HD.mpd", 
               drm: { 
@@ -40,6 +116,5 @@ jwplayer('player').setup({
 		    
 		  }]
 		});
-
 </script>
 </body></html>
